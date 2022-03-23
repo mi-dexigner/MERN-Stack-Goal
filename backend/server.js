@@ -3,9 +3,7 @@ const dotenv = require('dotenv').config();
 const port =  process.env.PORT || 5000;
 
 const app = express();
-app.get('/',(req,res)=>{
-    res.send("We are on Home")
-})
+app.use('/api/goals',require('./routes/goalRoutes'));
 
 // Change the 404 message modifing the middleware
 app.use(function(req, res, next) {
